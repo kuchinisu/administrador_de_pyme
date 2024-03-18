@@ -1,0 +1,20 @@
+{
+    "GananciasBrutas": 1.17, 
+    "pagoDeMercancias": 0.0, 
+    "destinadoACrecimiento": 1, 
+    "salarios": 0.117, 
+    
+    "pasivosFijos": {
+        "servicios": {
+        "internet": 0.15795, 
+        "agua": 0.15795
+    }
+    }, 
+
+    "aCajaFuerte": 0.1053, 
+    "gananciasNetas": 0.6318, 
+    "reparticionASocios": {
+        "Angela": 0.208494, "Emilia": 0.208494, "Rodolfo": 0.208494
+        }
+    
+}
