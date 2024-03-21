@@ -10,6 +10,7 @@ import Pagado from "containers/pages/Pagado"
 import DashBoard from "containers/pages/DashBoard";
 import Inventario from "containers/pages/Inventario";
 import ProductoDEMarca from "containers/pages/ProductoDeMarca"
+import ProductosTiposM from "containers/pages/ProductosTiposM";
 
 function App() {
   return ( 
@@ -22,7 +23,8 @@ function App() {
           <Route path="/administracion/cajera/pagado_realizado" element={<Pagado/>} />
           <Route path="administracion/dashboard" element={<DashBoard/>}/>
           <Route path="administracion/inventario" element={<Inventario/>}/>
-          <Route path="administracion/inventario/productos_de/:categoria/:marca" element={<ProductoDEMarca/>}/>
+          <Route path="administracion/inventario/productos_de/:categoria/:marca/:producto" element={<ProductoDEMarca/>}/>
+          <Route path="administracion/inventario/productos_de/:categoria/:marca" element={<ProductosTiposM/>}/>
         </Routes>
       </Router>
     </Provider>

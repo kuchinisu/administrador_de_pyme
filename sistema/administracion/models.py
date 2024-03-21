@@ -134,7 +134,14 @@ class ProductoTipo(models.Model):
             img_path = self.imagen
             return img_path
         return ''
+    
+    def get_categoria_str(self):
+        if self.categoria:
+            return str(self.categoria.nombre)
 
+    def get_marca_str(self):
+        if self.marca:
+            return str(self.marca.nombre)
     
 
 class Producto(models.Model):

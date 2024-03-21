@@ -77,7 +77,8 @@ class MarcaSerializer(serializers.ModelSerializer):
 
 class ProductoTipoSerializer(serializers.ModelSerializer):
     imagen = serializers.ImageField(source='get_imagen')
-
+    categoria = serializers.CharField(source='get_categoria_str')
+    marca = serializers.CharField(source='get_marca_str')
     class Meta:  
         model = ProductoTipo
         fields = [ 
@@ -87,7 +88,9 @@ class ProductoTipoSerializer(serializers.ModelSerializer):
             'precio',
             'costo',
             'perecedero',
-            'mod_inventario'
+            'mod_inventario',
+            'categoria',
+            'marca',
         ]
 
 class ProductoSerializer(serializers.ModelSerializer):
