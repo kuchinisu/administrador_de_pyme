@@ -9,11 +9,11 @@ import json
 
 from .models import (Producto, ProductoTipo, Categoria, Caja, CategoriaPasivosFijos, 
                      PasivosFijos, Socios, CajaFuerte, HistorialDeVentas, ProductoVendido,
-                     GananciasNetasPorDia, Marca)
+                     GananciasNetasPorDia, Marca, Empleade)
 
 from .serializers import (ProductoSerializer, ProductoTipoSerializer, 
                           CategoriaSerializer, CajaSerializer, SociosSerializer,
-                          GananciasNetasPorDiaSerializer)
+                          GananciasNetasPorDiaSerializer, EmpleadeSerializer)
 
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
 
@@ -162,6 +162,56 @@ class ProductosDeMarca(APIView):
                            
         else:
             return Response({"error": "La marca especificada no existe"}, status=404)
+
+
+class EmpleadesView(APIView):
+    def get(self, request, format=None):
+        if Empleade.objects.all().exists():
+            empleades = Empleade.objects.all().order_by('nombre')
+
+            paginator = SmallSetPagination()
+
+            results = paginator.paginate_queryset(empleades, request)
+            serializer = EmpleadeSerializer(results, many=True)
+
+            return paginator.get_paginated_response({'empleades': serializer.data})
+        else:
+            return Response({"error":"no existen empleades en la base de datos"}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['POST'])
+def add_empleades(request):
+    data = request.data
+    
+    nombre = data["nombre"]
+    edad = int(data["edad"])
+    sexo = data["sexo"]
+    cumple = datetime.datetime.strptime(data["cumple"], "%Y-%m-%d")
+    fecha_de_entrada = datetime.datetime.strptime(data["fecha_de_entrada"], "%Y-%m-%d")
+    dias_trabajados = int(data["dias_trabajados"])
+    puesto = data["puesto"]
+    salario = float(data["salario"])
+    codigo = int(data["codigo"])
+
+    if Empleade.objects.filter(codigo=codigo).exists():
+        return Response({"no autorizo":"ya existe un empleado con el codigo de empleado especificado"}, status=status.HTTP_409_CONFLICT)
+    else:
+
+        nuevo_empleade = Empleade(
+            nombre=nombre,
+            edad=edad,
+            sexo=sexo,
+            cumple=cumple,
+            fecha_entrada=fecha_de_entrada,
+            dias_trabajados = dias_trabajados,
+            puesto=puesto,
+            salario=salario,
+            codigo=codigo
+        )
+
+        nuevo_empleade.save()
+
+        return Response({"exito":"empleade agregado con exito"})
+
 
 @api_view(['POST'])
 def add_unidad(request):

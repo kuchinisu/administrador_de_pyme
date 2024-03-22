@@ -7,6 +7,7 @@ import gananciasNetas from './gananciasNetasP';
 import inventario from './inventario';
 import inventarioMarca from './productosDeMarca';
 import inventarioTipoMarca from './productosTipoDeMarca';
+import emplead from './emplead';
 
 export default combineReducers({
     cajera,
@@ -16,5 +17,6 @@ export default combineReducers({
     gananciasNetas,
     inventario,
     inventarioMarca,
-    inventarioTipoMarca
+    inventarioTipoMarca,
+    emplead
 })

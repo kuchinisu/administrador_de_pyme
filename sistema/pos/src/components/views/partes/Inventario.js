@@ -158,7 +158,7 @@ function Inventario() {
                     {inventario_list ? (
     <div>
             {inventario_list.map((item, index) => (
-                <div key={index}>
+                <div className="table-pin-cols" key={index}>
                     <div className="divider"/>
                     {Object.keys(item).map((categoria, categoriaIndex) => (
                         <div key={categoriaIndex}>

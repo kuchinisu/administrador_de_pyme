@@ -10,6 +10,7 @@ urlpatterns = [
     path('add_categoria/', add_categoria),
     path('add_marca/', add_marca),
     path('add_producto/', add_producto),
+    path('add_empleade/', add_empleades),
 
     #accion con template 
     path('cajera/', VistaCajera2.as_view()),
@@ -21,5 +22,6 @@ urlpatterns = [
     path('inventario/', InventarioView.as_view()),
     path('inventario/<categoria>/<marca>/<producto>/', ProductosDeMarcaUnidades.as_view()),
     path('inventario/<categoria>/<marca>/', ProductosDeMarca.as_view()),
+    path('empleades/', EmpleadesView.as_view()),
 ]
 #

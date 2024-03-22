@@ -22,11 +22,13 @@ class EmpleadeSerializer(serializers.ModelSerializer):
         fields=[
             'nombre',
             'edad',
+            'sexo',
             'cumple',
             'fecha_entrada',
             'dias_trabajados',
             'puesto',
-            'salario'
+            'salario',
+            'codigo',
         ]
 
 class CajaFuerteSerializer(serializers.ModelSerializer):

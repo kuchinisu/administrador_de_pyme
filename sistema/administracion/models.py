@@ -38,6 +38,17 @@ class Empleade(models.Model):
         ]
     )
 
+    OPCIONES =(
+        ("mujer","mujer"),
+        ("hombre","hombre")
+    )
+
+    sexo = models.CharField(
+        max_length = 20,
+        choices=OPCIONES,
+        default="sin especificar",
+    )
+
     cumple = models.DateTimeField(default = datetime.datetime.now())
     fecha_entrada = models.DateTimeField(default = datetime.datetime.now())
     
@@ -52,6 +63,8 @@ class Empleade(models.Model):
 
     puesto = models.CharField(default="", max_length=50)
     salario = models.DecimalField(max_digits=10, decimal_places=2)
+
+    codigo = models.IntegerField(default=0, unique = True)
 
     def __str__(self):
         return str(self.nombre)
