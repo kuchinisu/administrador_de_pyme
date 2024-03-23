@@ -1,7 +1,22 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { get_areas_list } from '../../redux/actions/areas';
+
+import { useSelector, useDispatch} from "react-redux";
+import {  useEffect } from "react";
 
 
 function NavbarRH () {
+
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(get_areas_list());
+    },[])
+
+    const areasList = useSelector((state) => state.areas.areas_list);
+
+
     const cambiarFormulario = () => {
         const botonSubm = document.getElementById("botonSubm");
         const formularioDeSocio = document.getElementById("formulario_de_socio");
@@ -36,6 +51,7 @@ function NavbarRH () {
         const puesto = document.getElementById("puesto");
         const salario = document.getElementById("salario");
         const codigo = document.getElementById("codigo-empl");
+        const area = document.getElementById("selector-area");
 
         const data = {
             nombre: nombre.value,
@@ -47,6 +63,7 @@ function NavbarRH () {
             puesto: puesto.value,
             salario: salario.value,
             codigo: codigo.value,
+            area: area.value,
 
 
         }
@@ -385,7 +402,28 @@ function NavbarRH () {
                                     </div>
                                     </div>
 
+                                    
+
                                 </div>
+                                        {areasList ? (
+                                            <div>
+                                                
+                                                {areasList.map((item) => 
+                                                    <select id='selector-area' className="select select-bordered w-full max-w-xs m-5">
+                                                    <option disabled selected>area</option>
+                                                    
+                                                    <option>{item.nombre}</option>
+                                                    </select>
+                                                )}
+                                            </div>
+                                        ):
+
+                                        (
+                                            <div>
+                                               no hay areas registradas
+                                            </div>
+                                        )}
+                                    
                                 </div>
 
                                 

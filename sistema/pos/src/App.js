@@ -13,6 +13,7 @@ import ProductoDEMarca from "containers/pages/ProductoDeMarca"
 import ProductosTiposM from "containers/pages/ProductosTiposM";
 import Landing from "containers/pages/Landing";
 import Humanos from "containers/pages/Humanos";
+import EmpleadC from "containers/pages/EmpleadC";
 
 function App() {
   return ( 
@@ -28,6 +29,7 @@ function App() {
           <Route path="administracion/rh" element={<Humanos/>}/>
           <Route path="administracion/inventario/productos_de/:categoria/:marca/:producto" element={<ProductoDEMarca/>}/>
           <Route path="administracion/inventario/productos_de/:categoria/:marca" element={<ProductosTiposM/>}/>
+          <Route path="administracion/rh/empl/:codigo" element={<EmpleadC/>}/>
         </Routes>
       </Router>
     </Provider>

@@ -9,11 +9,11 @@ import json
 
 from .models import (Producto, ProductoTipo, Categoria, Caja, CategoriaPasivosFijos, 
                      PasivosFijos, Socios, CajaFuerte, HistorialDeVentas, ProductoVendido,
-                     GananciasNetasPorDia, Marca, Empleade)
+                     GananciasNetasPorDia, Marca, Empleade, Areas)
 
 from .serializers import (ProductoSerializer, ProductoTipoSerializer, 
                           CategoriaSerializer, CajaSerializer, SociosSerializer,
-                          GananciasNetasPorDiaSerializer, EmpleadeSerializer)
+                          GananciasNetasPorDiaSerializer, EmpleadeSerializer, AreasSerializer)
 
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
 
@@ -163,6 +163,20 @@ class ProductosDeMarca(APIView):
         else:
             return Response({"error": "La marca especificada no existe"}, status=404)
 
+class AreasView(APIView):
+    def get(self, request, format=None):
+
+        if Areas.objects.all().exists():
+            areas = Areas.objects.all().order_by('nombre')
+
+            paginator = LargeSetPagination()
+
+            results = paginator.paginate_queryset(areas, request)
+            serializer = AreasSerializer(results, many=True)
+
+            return paginator.get_paginated_response({'areas':serializer.data})
+        else:
+            return Response({'error':'no existen areas en la base de datos'}, status=status.HTTP_404_NOT_FOUND)
 
 class EmpleadesView(APIView):
     def get(self, request, format=None):
@@ -178,6 +192,24 @@ class EmpleadesView(APIView):
         else:
             return Response({"error":"no existen empleades en la base de datos"}, status=status.HTTP_404_NOT_FOUND)
 
+class EmpleadeView(APIView):
+    def get(self, request, codigo, format=None):
+        if Empleade.objects.all().exists():
+            if Empleade.objects.filter(codigo=codigo):
+                empleade = Empleade.objects.filter(codigo=codigo)
+                paginator = SmallSetPagination()
+
+                results = paginator.paginate_queryset(empleade, request)
+                serializer = EmpleadeSerializer(results, many=True)
+
+                return paginator.get_paginated_response({'emplead':serializer.data})
+            else:
+                Response({'error':'la empleada/o especificada no existe'}, status=status.HTTP_404_NOT_FOUND)
+
+        else:
+            return Response({'error':'no hay empleada/os en la base de datos'}, status=status.HTTP_404_NOT_FOUND)
+        
+
 @api_view(['POST'])
 def add_empleades(request):
     data = request.data
@@ -191,6 +223,14 @@ def add_empleades(request):
     puesto = data["puesto"]
     salario = float(data["salario"])
     codigo = int(data["codigo"])
+    area_n = data["area"]
+
+    if not Areas.objects.all().exists():
+        return Response({'error':'no hay areas registradas en la base de datos'}, status=status.HTTP_404_NOT_FOUND)
+    elif not Areas.objects.filter(nombre=area_n):
+        return Response({'error':'no existe el area especificada'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+        area = Areas.objects.filter(nombre=area_n).first()
 
     if Empleade.objects.filter(codigo=codigo).exists():
         return Response({"no autorizo":"ya existe un empleado con el codigo de empleado especificado"}, status=status.HTTP_409_CONFLICT)
@@ -205,12 +245,13 @@ def add_empleades(request):
             dias_trabajados = dias_trabajados,
             puesto=puesto,
             salario=salario,
-            codigo=codigo
+            codigo=codigo,
+            area=area
         )
 
         nuevo_empleade.save()
 
-        return Response({"exito":"empleade agregado con exito"})
+        return Response({"exito":"empleade agregado con exito"}, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])

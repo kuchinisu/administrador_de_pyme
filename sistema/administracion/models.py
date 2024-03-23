@@ -28,6 +28,14 @@ class Socios(models.Model):
             return self.foto.url
         return ''
     
+
+
+class Areas(models.Model):
+    nombre = models.CharField(default="", max_length=50)
+
+    def __str__(self):
+        return str(self.nombre)
+    
 class Empleade(models.Model):
     nombre = models.CharField(default=" ", max_length=50)
     edad = models.IntegerField(
@@ -66,8 +74,12 @@ class Empleade(models.Model):
 
     codigo = models.IntegerField(default=0, unique = True)
 
+    area = models.ForeignKey(Areas, on_delete=models.CASCADE)
+
     def __str__(self):
         return str(self.nombre)
+    
+
     
 class CajaFuerte(models.Model):
     nombre = models.CharField(default="cajafuerte", max_length=11)

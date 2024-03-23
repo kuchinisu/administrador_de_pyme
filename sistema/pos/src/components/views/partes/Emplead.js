@@ -1,6 +1,7 @@
 import { get_emplead_list } from "../../../redux/actions/emplead";
 import { connect,  useSelector, useDispatch} from "react-redux";
 import {  useEffect,} from "react";
+import { Link } from "react-router-dom";
 
 function Emplead() {
 
@@ -15,13 +16,44 @@ function Emplead() {
 
     return (
         <div data-theme="cupcake">
+
+
+
             {empleadsList ? ( 
+                
                 <div>
-                {empleadsList.map((item) => 
-                    <div>
-                        {item.nombre}
+
+                    <div className="overflow-x-auto">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>puesto</th>
+                            <th>codigo</th>
+                        </tr>
+                        </thead>
+                        <tbody> 
+                        
+                        {empleadsList.map((item, index) => 
+                        <tr className="bg-base-100">
+                                <th>{index}</th>
+                                <td>
+                                    <Link to={`empl/${item.codigo}`}>
+                                        {item.nombre}
+                                    </Link>
+                                    
+                                </td>
+                                <td>{item.puesto}</td>
+                                <td>{item.codigo}</td>
+                        </tr>)}
+                        
+                        </tbody>
+                    </table>
                     </div>
-                    )}
+
+                    
                     
                 </div>
 

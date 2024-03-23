@@ -23,5 +23,7 @@ urlpatterns = [
     path('inventario/<categoria>/<marca>/<producto>/', ProductosDeMarcaUnidades.as_view()),
     path('inventario/<categoria>/<marca>/', ProductosDeMarca.as_view()),
     path('empleades/', EmpleadesView.as_view()),
+    path('empleade/<codigo>/', EmpleadeView.as_view()),
+    path('areas/', AreasView.as_view()),
 ]
 #

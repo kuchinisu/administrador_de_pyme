@@ -8,6 +8,8 @@ import inventario from './inventario';
 import inventarioMarca from './productosDeMarca';
 import inventarioTipoMarca from './productosTipoDeMarca';
 import emplead from './emplead';
+import areas from './areas';
+import empleadCod from './empleadPorCodigo';
 
 export default combineReducers({
     cajera,
@@ -18,5 +20,7 @@ export default combineReducers({
     inventario,
     inventarioMarca,
     inventarioTipoMarca,
-    emplead
+    emplead,
+    areas,
+    empleadCod,
 })

@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import (Socios, Empleade, CajaFuerte, CategoriaPasivosFijos,
                      PasivosFijos,Categoria,Marca,ProductoTipo,Producto, Merma, Caja, 
-                     GananciasNetasPorDia)
+                     GananciasNetasPorDia,Areas)
 
 class SociosSerializer(serializers.ModelSerializer):
     foto=serializers.CharField(source='get_imagen')
@@ -15,9 +15,16 @@ class SociosSerializer(serializers.ModelSerializer):
             'porcentaje_correspondido'
         ]
 
+class AreasSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Areas
+        fields=[
+            'nombre',
+        ]
 
 class EmpleadeSerializer(serializers.ModelSerializer):
     class Meta:
+        area=AreasSerializer()
         model = Empleade
         fields=[
             'nombre',
@@ -29,6 +36,7 @@ class EmpleadeSerializer(serializers.ModelSerializer):
             'puesto',
             'salario',
             'codigo',
+            'area',
         ]
 
 class CajaFuerteSerializer(serializers.ModelSerializer):
