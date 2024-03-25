@@ -16,8 +16,8 @@ export const get_cajera_list = () => async dispatch => {
         }
     };
     try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/cajera/`, config);
-        console.log(`${process.env.REACT_APP_API_URL}/administracion/cajera/`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/cajera/caja/`, config);
+        console.log(`${process.env.REACT_APP_API_URL}/cajera/caja/`)
         if (res.status === 200){
             //window.alert(res.data)
             dispatch({

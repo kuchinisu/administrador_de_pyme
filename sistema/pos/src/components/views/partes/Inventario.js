@@ -19,7 +19,7 @@ function Inventario() {
         const data = {
             "categoria":input.value,
         }
-        fetch('http://127.0.0.1:8000/administracion/add_categoria/', {
+        fetch('http://127.0.0.1:8000/inventario/add_categoria/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function Inventario() {
             //"imagen":inputMarcaImg.value,
             "marca":inputMarcaNombre.value,
         }
-        fetch('http://127.0.0.1:8000/administracion/add_marca/', {
+        fetch('http://127.0.0.1:8000/inventario/add_marca/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

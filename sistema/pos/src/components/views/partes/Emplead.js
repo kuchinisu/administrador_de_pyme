@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function Emplead() {
 
-    
 
     const dispatch = useDispatch();
     useEffect(() => {

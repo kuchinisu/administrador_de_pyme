@@ -33,7 +33,9 @@ DJANGO_APPS = [
 
 PROJECT_APPS = [
     'administracion.apps.AdministracionConfig',
-    'servidorimg.apps.ServidorimgConfig'
+    'servidorimg.apps.ServidorimgConfig',
+    'sistema.apps.cajera.apps.CajeraConfig',
+    'sistema.apps.rh.apps.RhConfig',
 ]
 THIRD_PARTY_APPS = [
     'corsheaders',

@@ -11,7 +11,7 @@ export const get_categorias = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/categorias/`, config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/inventario/categorias/`, config);
         
         if (res.status === 200) {
             dispatch({

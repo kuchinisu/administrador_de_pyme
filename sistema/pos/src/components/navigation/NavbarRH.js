@@ -12,7 +12,7 @@ function NavbarRH () {
 
     useEffect(() => {
         dispatch(get_areas_list());
-    },[])
+    },[dispatch])
 
     const areasList = useSelector((state) => state.areas.areas_list);
 

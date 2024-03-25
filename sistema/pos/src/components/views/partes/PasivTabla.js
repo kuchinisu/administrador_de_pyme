@@ -11,7 +11,7 @@ function PasivTabla () {
         }
 
         var datosServer = {}
-        fetch('http://127.0.0.1:8000/administracion/tabla_de_pasivos/', {
+        fetch('http://127.0.0.1:8000/finanzas/tabla_de_pasivos/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

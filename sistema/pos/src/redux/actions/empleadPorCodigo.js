@@ -13,8 +13,8 @@ export const get_emplead_codigo = (codigo) => async dispatch => {
         }
     };
     try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/empleade/${codigo}/`, config);
-        console.log(`${process.env.REACT_APP_API_URL}/administracion/empleade/${codigo}/`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/rh/empleade/${codigo}/`, config);
+        console.log(`${process.env.REACT_APP_API_URL}/rh/empleade/${codigo}/`)
         if (res.status === 200){
             dispatch({
                 type: GET_EMPLEAD_ESPECIFICA_SUCCESS,

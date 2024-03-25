@@ -7,8 +7,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('administracion/', include('administracion.urls')),  # Cambié el nombre aquí
-    path('media/', include('servidorimg.urls')) 
+    path('administracion/', include('administracion.urls')),
+    path('cajera/', include('sistema.apps.cajera.urls')),
+    path('rh/', include('sistema.apps.rh.urls')),
+    path('inventario/', include('sistema.apps.inventario.urls')),
+    path('finanzas/', include('sistema.apps.invantario.urls')),
+    path('media/', include('servidorimg.urls')),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

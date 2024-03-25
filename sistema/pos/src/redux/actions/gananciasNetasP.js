@@ -13,8 +13,8 @@ export const get_ganancias_netas_list = () => async dispatch => {
         }
     };
     try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/ganancias_por_dia/`, config);
-        console.log(`${process.env.REACT_APP_API_URL}/administracion/ganancias_por_dia/`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/finanzas/ganancias_por_dia/`, config);
+        console.log(`${process.env.REACT_APP_API_URL}/finanzas/ganancias_por_dia/`)
         if (res.status === 200){
             dispatch({
                 type: GET_GANANCIAS_NETAS_SUCCESS,

@@ -14,7 +14,7 @@ function Navbar(){
 
     const realizarCorte = () => {
         const data = {}
-        fetch('http://127.0.0.1:8000/administracion/realizar_corte/', {
+        fetch('http://127.0.0.1:8000/cajera/realizar_corte/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

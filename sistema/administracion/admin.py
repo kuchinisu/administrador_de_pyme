@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+""" 
 from .models import(Socios, Empleade, CajaFuerte, CategoriaPasivosFijos, PasivosFijos, Categoria,
                     Marca, Producto, Merma, Caja,ProductoTipo, HistorialDeVentas, ProductoVendido,
                     GananciasNetasPorDia, Areas)
@@ -18,3 +20,4 @@ admin.site.register(ProductoVendido)
 admin.site.register(HistorialDeVentas)
 admin.site.register(GananciasNetasPorDia)
 admin.site.register(Areas)
+"""

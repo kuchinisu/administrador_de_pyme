@@ -12,8 +12,8 @@ export const get_socios_list = () => async dispatch => {
     };
 
     try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/socios/`, config);
-        console.log(`la solicitu va a: ${process.env.REACT_APP_API_URL}/administracion/socios/`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/rh/socios/`, config);
+        console.log(`la solicitu va a: ${process.env.REACT_APP_API_URL}/rh/socios/`)
         if (res.status === 200){
             dispatch({
                 type: GET_SOCIOS_SUCCESS,

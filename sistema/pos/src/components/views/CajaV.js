@@ -38,7 +38,7 @@ function CajaV({ get_cajera_list, cajera_list }) {
 
         console.log(data);
 
-        fetch('http://127.0.0.1:8000/administracion/realizar_pago/', {
+        fetch('http://127.0.0.1:8000/cajera/realizar_pago/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

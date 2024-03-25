@@ -7,8 +7,8 @@ import {
 
 export const get_marca_tipos = (categoria,marca) => async dispatch => { 
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/inventario/${categoria}/${marca}/`);
-        console.log(`${process.env.REACT_APP_API_URL}/administracion/inventario/${categoria}/${marca}/`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/inventario/productos_de_marca/${categoria}/${marca}/`);
+        console.log(`${process.env.REACT_APP_API_URL}/inventario/productos_de_marca/${categoria}/${marca}/`)
 
         if (res.status === 200) {
             dispatch({

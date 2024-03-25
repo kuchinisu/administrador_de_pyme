@@ -13,8 +13,8 @@ export const get_cajas_list = () => async dispatch => {
     };
 
     try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/caja/`, config);
-        console.log(`la solicitu va a: ${process.env.REACT_APP_API_URL}/administracion/caja/`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/cajera/caja_view/`, config);
+        console.log(`la solicitu va a: ${process.env.REACT_APP_API_URL}/cajera/caja_view/`)
         if (res.status === 200){
             dispatch({
                 type: GET_CAJA_SUCCESS,

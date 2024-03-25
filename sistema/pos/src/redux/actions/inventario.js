@@ -6,7 +6,7 @@ import {
 
 export const get_inventario = () => async dispatch => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/administracion/inventario/`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/invantario/inventario/`);
         
         if (res.status === 200) {
             dispatch({
