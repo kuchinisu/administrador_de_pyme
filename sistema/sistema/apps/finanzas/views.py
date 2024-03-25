@@ -11,7 +11,7 @@ import os
 import json
 
 from .serializers import CajaFuerteSerializer, GananciasNetasPorDiaSerializer
-from apps.utils.pagination import LargeSetPagination, MediumSetPagination, SmallSetPagination
+from sistema.apps.utils.pagination import LargeSetPagination, MediumSetPagination, SmallSetPagination
 from .models import (CategoriaPasivosFijos, PasivosFijos, GananciasNetasPorDia)
 
 

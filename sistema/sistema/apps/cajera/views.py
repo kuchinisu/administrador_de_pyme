@@ -12,22 +12,22 @@ import requests
 
 from .models import HistorialDeVentas, ProductoVendido
 
-from sistema.sistema.apps.rh.models import Socios
-from sistema.sistema.apps.inventario.models import (Producto, ProductoTipo, Categoria, 
+from sistema.apps.rh.models import Socios
+from sistema.apps.inventario.models import (Producto, ProductoTipo, Categoria, 
                                                     Marca, 
                                                     )
-from sistema.sistema.apps.inventario.serializers import (ProductoSerializer, MarcaSerializer, 
+from sistema.apps.inventario.serializers import (ProductoSerializer, MarcaSerializer, 
                                                          CategoriaSerializer,ProductoTipoSerializer
                                                          )
-from sistema.sistema.apps.finanzas.models import (Caja, 
+from sistema.apps.finanzas.models import (Caja, 
                                                   CategoriaPasivosFijos, PasivosFijos, 
                                                   CajaFuerte
                                                   )
-from sistema.sistema.apps.finanzas.serializers import CajaSerializer
+from sistema.apps.finanzas.serializers import CajaSerializer
 
-from apps.utils.pagination import *
+from sistema.apps.utils.pagination import *
 
-
+#Large
 
 class VistaCajera2(APIView):
     def get(self, request, format=None):

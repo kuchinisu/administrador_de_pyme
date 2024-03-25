@@ -7,42 +7,7 @@ import os
 import json
 
 
-from .models import (Producto, ProductoTipo, Categoria, Caja, CategoriaPasivosFijos, 
-                     PasivosFijos, Socios, CajaFuerte, HistorialDeVentas, ProductoVendido,
-                     GananciasNetasPorDia, Marca, Empleade, Areas)
-
-from .serializers import (ProductoSerializer, ProductoTipoSerializer, 
-                          CategoriaSerializer, CajaSerializer, SociosSerializer,
-                          GananciasNetasPorDiaSerializer, EmpleadeSerializer, AreasSerializer)
-
-from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import status, permissions
-
- 
-
-
-
-
-class VistaCajera(APIView):
-    def get(self, request, format=None):
-        if Producto.objects.all().exists():
-            productos = Producto.objects.all()
-
-            paginator = SmallSetPagination()
-
-            results = paginator.paginate_queryset(productos, request)
-            serializer = ProductoSerializer(results, many=True)
-
-            return paginator.get_paginated_response({'productos':serializer.data})
-
-        else:
-            return Response({'error': 'No encontrado'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
- 
-
     
 
 @api_view(['POST'])

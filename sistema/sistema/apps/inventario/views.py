@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 
 
 
-from apps.utils.pagination import LargeSetPagination, MediumSetPagination, SmallSetPagination
+from sistema.apps.utils.pagination import LargeSetPagination, MediumSetPagination, SmallSetPagination
 
 from .serializers import (CategoriaSerializer, MarcaSerializer, ProductoSerializer, ProductoTipoSerializer)
 from .models import (Categoria, Marca, Producto, ProductoTipo)

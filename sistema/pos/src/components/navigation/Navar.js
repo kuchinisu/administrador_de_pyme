@@ -61,7 +61,7 @@ function Navbar(){
             <div className="dropdown dropdown-end" >
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                     <div className="indicator">
-                        <img src="http://127.0.0.1:8000/media/caja-registradora.png"></img>
+                        <img src="http://127.0.0.1:8000/static/img/caja-registradora.png"></img>
                     </div>
                 </div>
                 <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">

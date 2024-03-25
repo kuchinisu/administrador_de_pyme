@@ -35,6 +35,8 @@ PROJECT_APPS = [
     'administracion.apps.AdministracionConfig',
     'servidorimg.apps.ServidorimgConfig',
     'sistema.apps.cajera.apps.CajeraConfig',
+    'sistema.apps.inventario.apps.InventarioConfig',
+    'sistema.apps.finanzas.apps.FinanzasConfig',
     'sistema.apps.rh.apps.RhConfig',
 ]
 THIRD_PARTY_APPS = [

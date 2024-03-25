@@ -8,7 +8,7 @@ from rest_framework import status, permissions
 import datetime
  
 from .serializers import (AreasSerializer, SociosSerializer, EmpleadeSerializer)
-from apps.utils.pagination import LargeSetPagination, MediumSetPagination, SmallSetPagination
+from sistema.apps.utils.pagination import LargeSetPagination, MediumSetPagination, SmallSetPagination
 from .models import Areas, Socios, Empleade
 
 class AreasView(APIView):
